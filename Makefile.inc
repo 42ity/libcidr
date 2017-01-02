@@ -14,6 +14,7 @@ CIDR_INCDIR?=${PREFIX}/include
 CIDR_MANDIR?=${PREFIX}/man
 CIDR_DOCDIR?=${PREFIX}/share/libcidr/docs
 CIDR_EXDIR?=${PREFIX}/share/libcidr/examples
+PKG_CONFIG_DIR?=${PREFIX}/share/pkgconfig
 
 # Where we install files to (this allows staging an install elsewhere
 # from where it will be run on a system)
