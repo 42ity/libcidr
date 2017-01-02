@@ -41,13 +41,14 @@ install-cidrcalc:
 	-@${MKDIR} ${DESTDIR}${CIDR_BINDIR}
 	${INSTALL} -m 555 src/examples/cidrcalc/cidrcalc ${DESTDIR}${CIDR_BINDIR}/
 
+#	ls -l ${CIDR_INCDIR}/..
 install-dev:
 	@${ECHO} "-> Installing header file..."
 	-@${MKDIR} ${DESTDIR}${CIDR_INCDIR}
 	${INSTALL} -m 444 include/libcidr.h ${DESTDIR}${CIDR_INCDIR}/
-	${INSTALL} -m 555 -d ${DESTDIR}${CIDR_LIBDIR}
+	-@${MKDIR} ${DESTDIR}${CIDR_LIBDIR}
 	(cd ${DESTDIR}${CIDR_LIBDIR} && ${LN} -fs ${SHLIB_NAME} ${SHLIB_LINK})
-	${INSTALL} -m 555 -d ${PREFIX}/share/pkgconfig
+	-@${MKDIR} ${PREFIX}/share/pkgconfig
 	${SED} \
 		-e "s#@libdir@#/usr/lib#" \
 		-e "s#@version@#1.2.3#" \
