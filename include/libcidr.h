@@ -5,6 +5,11 @@
 #ifndef __LIBCIDR_H
 #define __LIBCIDR_H
 
+# ifdef __cplusplus
+extern "C" {
+# endif
+
+
 /* We need the fixed-size int types.  See discussion below. */
 #include <inttypes.h>
 /* We need the struct in[6]_addr defs */
@@ -89,6 +94,10 @@ struct in_addr *cidr_to_inaddr(const CIDR *, struct in_addr *);
 struct in6_addr *cidr_to_in6addr(const CIDR *, struct in6_addr *);
 char *cidr_to_str(const CIDR *, int);
 const char *cidr_version(void);
+
+# ifdef __cplusplus
+}
+# endif
 
 
 #endif /* __LIBCIDR_H */
