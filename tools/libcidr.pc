@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=@libdir@
+includedir=${prefix}/include
+
+Name: libcidr
+Description: Library for manipulating IP addresses in CIDR format
+Version: @version@
+URL: http://www.over-yonder.net/~fullermd/projects/libcidr/
+Libs: -L${libdir} -lcidr
+Cflags: -I${includedir}
