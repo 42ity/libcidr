@@ -1,0 +1,23 @@
+#!/bin/bash -x
+
+ME=`realpath $0`
+MYDIR=`dirname ${ME}`
+PREFIX=/usr/local
+
+while [ "$1" != "" ] ; do
+    case "$1" in
+    --prefix)
+        PREFIX=$2
+        shift
+        ;;
+    --prefix=*)
+        PREFIX=`echo "$1" | cut -f 2 -d=`
+        ;;
+    esac
+    shift
+done
+
+if [ "$PREFIX" != "" ] ; then
+    sed -i -r "s#^PREFIX\\?=.+\$#PREFIX?=${PREFIX}#" ${MYDIR}/GNUmakefile.inc
+    sed -i -r "s#^PREFIX\\?=.+\$#PREFIX?=${PREFIX}#" ${MYDIR}/Makefile.inc
+fi
