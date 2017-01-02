@@ -3,6 +3,7 @@
 ME="$0"
 MYDIR=`dirname ${ME}`
 PREFIX=/usr/local
+PKG_CONFIG_DIR=""
 
 while [ "$1" != "" ] ; do
     case "$1" in
@@ -13,11 +14,21 @@ while [ "$1" != "" ] ; do
     --prefix=*)
         PREFIX=`echo "$1" | cut -f 2 -d=`
         ;;
+    PKG_CONFIG_PATH=*)
+        PKG_CONFIG_DIR=`echo "$1" | cut -f 2 -d=`
+        ;;
     esac
     shift
 done
 
 if [ "$PREFIX" != "" ] ; then
-    sed -i -r "s#^PREFIX\\?=.+\$#PREFIX?=${PREFIX}#" ${MYDIR}/GNUmakefile.inc
-    sed -i -r "s#^PREFIX\\?=.+\$#PREFIX?=${PREFIX}#" ${MYDIR}/Makefile.inc
+    sed -i -r "s#^PREFIX\\?=.*\$#PREFIX?=${PREFIX}#" ${MYDIR}/GNUmakefile.inc
+    sed -i -r "s#^PREFIX\\?=.*\$#PREFIX?=${PREFIX}#" ${MYDIR}/Makefile.inc
+fi
+
+# PKG_CONFIG_PATH=/home/travis/build/42ity/fty-nut/tmp/lib/pkgconfig
+
+if [ "${PKG_CONFIG_DIR}" != "" ] ; then
+    sed -i -r "s#^PKG_CONFIG_DIR\\?=.*\$#PKG_CONFIG_DIR?=${PKG_CONFIG_DIR}#" ${MYDIR}/GNUmakefile.inc
+    sed -i -r "s#^PKG_CONFIG_DIR\\?=.*\$#PKG_CONFIG_DIR?=${PKG_CONFIG_DIR}#" ${MYDIR}/Makefile.inc
 fi
