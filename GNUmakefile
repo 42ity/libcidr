@@ -50,9 +50,9 @@ install-dev:
 	(cd ${DESTDIR}${CIDR_LIBDIR} && ${LN} -fs ${SHLIB_NAME} ${SHLIB_LINK})
 	-@${MKDIR} ${PREFIX}/share/pkgconfig
 	${SED} \
-		-e "s#@libdir@#/usr/lib#" \
+		-e "s#@libdir@#${CIDR_LIBDIR}#" \
 		-e "s#@version@#1.2.3#" \
-		-e "s#@prefix@#/usr#" \
+		-e "s#@prefix@#${PREFIX}#" \
 		tools/libcidr.pc >${PREFIX}/share/pkgconfig/libcidr.pc
 
 install-man:
