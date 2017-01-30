@@ -15,7 +15,8 @@ while [ "$1" != "" ] ; do
         PREFIX=`echo "$1" | cut -f 2 -d=`
         ;;
     PKG_CONFIG_PATH=*)
-        PKG_CONFIG_DIR=`echo "$1" | cut -f 2 -d=`
+        # Get the first dir from that path
+        PKG_CONFIG_DIR=`echo "$1" | cut -f 2 -d= | cut -f 1 -d:`
         ;;
     esac
     shift
