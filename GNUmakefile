@@ -48,12 +48,12 @@ install-dev:
 	${INSTALL} -m 444 include/libcidr.h ${DESTDIR}${CIDR_INCDIR}/
 	-@${MKDIR} ${DESTDIR}${CIDR_LIBDIR}
 	(cd ${DESTDIR}${CIDR_LIBDIR} && ${LN} -fs ${SHLIB_NAME} ${SHLIB_LINK})
-	-@${MKDIR} ${PREFIX}/share/pkgconfig
+	-@${MKDIR} ${DESTDIR}${PKG_CONFIG_DIR}
 	${SED} \
 		-e "s#@libdir@#${CIDR_LIBDIR}#" \
 		-e "s#@version@#1.2.3#" \
 		-e "s#@prefix@#${PREFIX}#" \
-		tools/libcidr.pc >${PREFIX}/share/pkgconfig/libcidr.pc
+		tools/libcidr.pc >${DESTDIR}${PKG_CONFIG_DIR}/libcidr.pc
 
 install-man:
 	@${ECHO} "-> Installing manpage..."
