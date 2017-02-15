@@ -12,7 +12,6 @@ os:
 compiler:
  - clang
  - gcc
- - g++
 
 before_script:
  - mkdir -p "${HOME}/tmp"
