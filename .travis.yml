@@ -1,0 +1,22 @@
+# Initially snatched and adapted from libsodium .travis.yml
+
+sudo: false
+
+language: c
+
+os:
+ - linux
+
+compiler:
+ - clang
+ - gcc
+ - g++
+
+before_script:
+ - mkdir -p "${HOME}/tmp"
+
+script:
+ - ./configure --prefix "${HOME}/tmp" PKG_CONFIG_PATH="${HOME}/tmp/lib"
+ - make all
+ - make install
+ - ( echo '#include <libcidr.h>' ; echo 'int main(void) { return ( cidr_version() != NULL); }' ) > /tmp/main.c && gcc -Iinclude -Isrc/ $(find src -name '*.c' -o -name '*.S') /tmp/main.c
