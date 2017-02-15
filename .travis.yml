@@ -21,4 +21,4 @@ script:
  - ./configure --prefix "${HOME}/tmp" PKG_CONFIG_PATH="${HOME}/tmp/lib"
  - make all
  - make install
- - ( echo '#include <libcidr.h>' ; echo 'int main(void) { return ( cidr_version() != (void*)0ULL); }' ) > /tmp/main.c && gcc -Iinclude -Isrc/ $(find src -name '*.c' -o -name '*.S') /tmp/main.c
+ - ( echo '#include <libcidr.h>' ; echo 'int main(void) { return ( cidr_version() != (void*)0ULL); }' ) > /tmp/main.c && gcc -Iinclude -I src/include -Isrc/ $(find src -name '*.c' -o -name '*.S') /tmp/main.c
