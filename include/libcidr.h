@@ -14,6 +14,8 @@ extern "C" {
 #include <inttypes.h>
 /* We need the struct in[6]_addr defs */
 #include <netinet/in.h>
+/* We need AF_INET and AF_INET6 standard definitions */
+#include <sys/socket.h>
 
 
 /* CONSTANTS */
