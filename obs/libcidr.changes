@@ -1,0 +1,60 @@
+-------------------------------------------------------------------
+Mon Jan 25 12:43:32 UTC 2016 - michalvyskocil@eaton.com
+
+- Fix devel package name
+
+-------------------------------------------------------------------
+Tue Dec 29 09:06:31 UTC 2015 - ArnaudQuette@eaton.com
+
+- add missing copryright file
+
+-------------------------------------------------------------------
+Fri Sep 12 11:15:22 UTC 2014 - TomasHalman@eaton.com
+
+- ugly fix for provides, ldconfig after install/upgrade/uninstall
+
+-------------------------------------------------------------------
+Fri Sep 12 06:56:32 UTC 2014 - TomasHalman@eaton.com
+
+- autorquirements on
+
+-------------------------------------------------------------------
+Thu Sep 11 13:30:01 UTC 2014 - TomasHalman@eaton.com
+
+- excluding cidrcalc
+
+-------------------------------------------------------------------
+Wed Sep  3 11:49:16 UTC 2014 - TomasHalman@eaton.com
+
+- removed forgetten char %
+
+-------------------------------------------------------------------
+Wed Sep  3 11:37:27 UTC 2014 - TomasHalman@eaton.com
+
+- fixed prefix
+
+-------------------------------------------------------------------
+Wed Sep  3 11:28:06 UTC 2014 - TomasHalman@eaton.com
+
+- pkgconfig for debian
+
+-------------------------------------------------------------------
+Wed Sep  3 11:19:49 UTC 2014 - TomasHalman@eaton.com
+
+- pkgconfig for debian
+
+-------------------------------------------------------------------
+Wed Sep  3 08:58:08 UTC 2014 - TomasHalman@eaton.com
+
+- xz -> gz
+
+-------------------------------------------------------------------
+Wed Sep  3 08:42:12 UTC 2014 - TomasHalman@eaton.com
+
+- pkg config patch + rpm spec file
+
+-------------------------------------------------------------------
+Tue Aug 26 12:58:05 UTC 2014 - TomasHalman@eaton.com
+
+- Added libcidr deb package rule
+
