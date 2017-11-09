@@ -35,3 +35,10 @@ Description: Takes in a CIDR block, and gives you a quick set of stats about it.
  Cisco-style wildcard mask, and optionally binary expansion and super/subnet
  info. Unlike ipcalc, though, it supports IPv6. Useful thing to have around
  when you're planning your subnetting scheme.
+
+Package: libcidr0-dbg
+Architecture: any
+Section: debug
+Priority: optional
+Depends: libcidr0 (= ${binary:Version}), ${misc:Depends}
+Description: libcidr debugging symbols
