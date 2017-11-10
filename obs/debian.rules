@@ -61,3 +61,6 @@ binary-arch: build install
 		dh_builddeb
 
 binary: binary-arch
+
+override_dh_strip:
+	dh_strip --dbg-package=libcidr0-dbg
