@@ -53,7 +53,7 @@ install-dev:
 		-e "s#@libdir@#${CIDR_LIBDIR}#" \
 		-e "s#@version@#1.2.3#" \
 		-e "s#@prefix@#${PREFIX}#" \
-		tools/libcidr.pc >${DESTDIR}${PKG_CONFIG_DIR}/libcidr.pc
+		tools/libcidr.pc.in >${DESTDIR}${PKG_CONFIG_DIR}/libcidr.pc
 
 install-man:
 	@${ECHO} "-> Installing manpage..."

@@ -77,7 +77,7 @@ make install \
   CIDR_MANDIR=%{_mandir}
 
 install -m 755 -d  %{buildroot}%{_libdir}/pkgconfig
-sed -e "s#@libdir@#%{_libdir}#" -e "s#@version@#%{version}#" -e "s#@prefix@#%{_prefix}#" tools/libcidr.pc >%{buildroot}%{_libdir}/pkgconfig/libcidr.pc
+sed -e "s#@libdir@#%{_libdir}#" -e "s#@version@#%{version}#" -e "s#@prefix@#%{_prefix}#" tools/libcidr.pc.in >%{buildroot}%{_libdir}/pkgconfig/libcidr.pc
 
 %post -p /sbin/ldconfig
 
