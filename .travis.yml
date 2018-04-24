@@ -2,9 +2,11 @@
 
 sudo: false
 
-language: c
+language:
+- c
 
-cache: ccache
+cache:
+- ccache
 
 os:
  - linux
