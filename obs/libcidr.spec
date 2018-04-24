@@ -59,6 +59,7 @@ and manipulate them in various ways.
 make %{?_smp_mflags} \
   DESTDIR=%{buildroot} \
   PREFIX=%{_prefix} \
+  PKG_CONFIG_DIR=%{_libdir}/pkgconfig \
   CIDR_LIBDIR=%{_libdir} \
   CIDR_DOCDIR=%{_defaultdocdir}/%{name}-%{version} \
   CIDR_EXDIR=%{_defaultdocdir}/%{name}-%{version}/examples \
@@ -69,6 +70,7 @@ make %{?_smp_mflags} \
 make install \
   DESTDIR=%{buildroot} \
   PREFIX=%{_prefix} \
+  PKG_CONFIG_DIR=%{_libdir}/pkgconfig \
   CIDR_LIBDIR=%{_libdir} \
   CIDR_DOCDIR=%{_defaultdocdir}/%{name}-%{version} \
   CIDR_EXDIR=%{_defaultdocdir}/%{name}-%{version}/examples \
@@ -97,4 +99,3 @@ sed -e "s#@libdir@#%{_libdir}#" -e "s#@version@#%{version}#" -e "s#@prefix@#%{_p
 %doc /usr/share/man
 
 %changelog
-
