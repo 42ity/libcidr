@@ -246,10 +246,13 @@ pipeline {
                             milestone ordinal: 100, label: "${env.JOB_NAME}@${env.BRANCH_NAME}"
                             def GIT_URL = sh(returnStdout: true, script: """git remote -v | egrep '^origin' | awk '{print \$2}' | head -1""").trim()
                             def GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse --verify HEAD').trim()
+                            def DIST_ARCHIVE = ""
+                            //if ( params.DO_DIST_DOCS ) { DIST_ARCHIVE = env.BUILD_URL + "artifact/__dist.tar.gz" }
                             build job: "${myDEPLOY_JOB_NAME}", parameters: [
                                 string(name: 'DEPLOY_GIT_URL', value: "${GIT_URL}"),
                                 string(name: 'DEPLOY_GIT_BRANCH', value: env.BRANCH_NAME),
-                                string(name: 'DEPLOY_GIT_COMMIT', value: "${GIT_COMMIT}")
+                                string(name: 'DEPLOY_GIT_COMMIT', value: "${GIT_COMMIT}"),
+                                string(name: 'DEPLOY_DIST_ARCHIVE', value: "${DIST_ARCHIVE}")
                                 ], quietPeriod: 0, wait: myDEPLOY_REPORT_RESULT, propagate: myDEPLOY_REPORT_RESULT
                         } else {
                             echo "Not deploying because branch '${env.BRANCH_NAME}' did not match filter '${myDEPLOY_BRANCH_PATTERN}'"
