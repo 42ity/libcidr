@@ -58,6 +58,10 @@ pipeline {
     triggers {
         pollSCM 'H/5 * * * *'
     }
+    options {
+        disableConcurrentBuilds()
+        disableResume()
+    }
 // Note: your Jenkins setup may benefit from similar setup on side of agents:
 //        PATH="/usr/lib64/ccache:/usr/lib/ccache:/usr/bin:/bin:${PATH}"
     stages {
