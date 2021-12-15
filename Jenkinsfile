@@ -1,4 +1,5 @@
-@Library('etn-ipm2-jenkins') _
+@Library('etn-ipm2-jenkins@push-to-mbt') _
+import params.CmakePipelineParams
 
 pipeline {
     agent {
@@ -280,11 +281,14 @@ pipeline {
                             branch 'FTY'
                             branch '*-FTY-master'
                             branch '*-FTY'
+                            branch 'test-push*'
                         }
                     }
                     steps {
                         script {
-                            deploy.pushToOBS()
+                            CmakePipelineParams parameters = new CmakePipelineParams()
+                            deploy.create_packages(parameters, true)
+                            deploy.push_to_obs_mbt(parameters)
                         }
                     }
                 }
